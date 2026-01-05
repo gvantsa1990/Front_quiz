@@ -1,8 +1,8 @@
-const button = document.getElementById('btn');
-const users = document.getElementById('users');
+const button = document.getElementById("btn");
+const users = document.getElementById("users");
 
 async function getUsers() {
-  const url = 'https://jsonplaceholder.typicode.com/users';
+  const url = "https://jsonplaceholder.typicode.com/users";
   const response = await fetch(url);
   const result = await response.json();
 
@@ -10,16 +10,17 @@ async function getUsers() {
 }
 
 async function displayUsers() {
+  users.innerHTML = "";
   const data = await getUsers();
 
   for (let i = 0; i < data.length; i++) {
-    const article = document.createElement('article');
-    const name = document.createElement('p');
-    const email = document.createElement('p');
+    const article = document.createElement("article");
+    const name = document.createElement("p");
+    const email = document.createElement("p");
 
-    article.className = 'user';
-    name.className = 'username';
-    email.className = 'email';
+    article.className = "user";
+    name.className = "username";
+    email.className = "email";
 
     name.innerText = data[i].name;
     email.innerText = data[i].email;
@@ -31,4 +32,4 @@ async function displayUsers() {
   }
 }
 
-button.addEventListener('click', displayUsers);
+button.addEventListener("click", displayUsers);
